@@ -8,8 +8,13 @@ pub struct App;
 
 impl epi::App for App {
     fn update(&mut self, ctx: &CtxRef, _frame: &mut Frame<'_>) {
+        let message = "Hello, World";
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.label("Hello, World");
+            ui.label(message);
+            let panic = ui.button("Panic");
+            if panic.clicked() {
+                panic!("{}", message)
+            }
         });
     }
 
