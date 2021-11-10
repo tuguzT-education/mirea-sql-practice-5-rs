@@ -10,5 +10,6 @@ fn main() {
     let _handle = logger::init().unwrap();
 
     let options = NativeOptions::default();
-    eframe::run_native(Box::new(App::default()), options);
+    let app = App::default();
+    eframe::run_native(Box::new(app), options);
 }
